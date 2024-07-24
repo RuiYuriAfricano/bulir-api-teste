@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { BookingsService } from './bookings.service';
 import { CreateBookingDto } from './dto/create-booking.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -15,4 +15,9 @@ export class BookingsController {
     async create(@Body() createBookingDto: CreateBookingDto) {
         return this.bookingsService.create(createBookingDto);
     }
+    @Get()
+    async findAll() {
+        return this.bookingsService.findAll();
+    }
+
 }

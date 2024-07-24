@@ -52,4 +52,8 @@ export class BookingsService {
             return booking;
         });
     }
+
+    async findAll(): Promise<Booking[]> {
+        return this.prisma.booking.findMany();
+    }
 }
